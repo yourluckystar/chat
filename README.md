@@ -4,7 +4,7 @@
 
 #### Linux
 ```bash
-sh -c "$(curl -sS https://raw.githubusercontent.com/7791372/chat/main/install.sh)"
+sh -c "$(curl -sS https://raw.githubusercontent.com/yourluckystar/chat/main/install.sh)"
 ```
 
 #### Building from Source
@@ -14,7 +14,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup update
 
 # Clone the repository
-git clone https://github.com/7791372/chat.git
+git clone https://github.com/yourluckystar/chat.git
 cd chat
 
 # Build and run the client
@@ -38,7 +38,7 @@ cargo build --release --bin server
 <sup>To enable incoming/outgoing ssh connections, you have to allow them in your firewall. In this example I'll use `ufw (uncomplicated firewall)`</sup>
 
 ```bash
-sudo pacman -S ufw (for ArchLinux)
+sudo pacman -S ufw (For Arch-based Distributions)
 
 sudo ufw allow ssh
 sudo ufw enable
