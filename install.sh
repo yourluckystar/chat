@@ -10,7 +10,7 @@ OUTPUT="$HOME/chat"
 mkdir -p "$OUTPUT"
 
 echo "Downloading Client..."
-curl -S https://github.com/7791372/chat/releases/latest/download/client-linux \
+curl -sS https://github.com/7791372/chat/releases/latest/download/client-linux \
     --output "$OUTPUT/client-linux" \
     --location
 
