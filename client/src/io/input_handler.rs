@@ -22,9 +22,12 @@ pub async fn input_handler(writer: OwnedWriteHalf, shared_variable: Arc<Mutex<St
         if let event::Event::Key(KeyEvent { code, .. }) = event::read().unwrap() {
             match code {
                 KeyCode::Enter => {
+                    // i rly dont like how this looks xd
                     let input = input_lock.clone();
-                    write_message(&mut writer, input).await;
-                    input_lock.clear();
+                    if !input.is_empty() {
+                        write_message(&mut writer, input).await;
+                        input_lock.clear();
+                    }
                 }
                 KeyCode::Esc => {
                     terminal::disable_raw_mode().unwrap();
