@@ -10,7 +10,7 @@ pub async fn write_message(writer: &mut OwnedWriteHalf, message: String) {
         None => "anon".to_string(),
     };
     
-    let formatted_message = format!("{}:{}", name, message);
+    let formatted_message = format!("{}: {}", name, message);
 
     if let Err(e) = writer.write_all(formatted_message.as_bytes()).await {
         eprintln!("Failed to write message: {}", e); 
