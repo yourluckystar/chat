@@ -9,8 +9,10 @@ mod util;
 
 #[tokio::main]
 async fn main() { 
-    // TODO: add port option in .config/chat
-    let stream = TcpStream::connect("127.0.0.1:11945").await.expect("Failed to connect");
+    let config = config::get_config();
+
+    let address = format!("{}:{}", config.server.server_ip, config.server.server_port);
+    let stream = TcpStream::connect(address).await.expect("Failed to connect");
     let (reader, writer) = stream.into_split();
 
     terminal::enable_raw_mode().unwrap();

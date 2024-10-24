@@ -4,9 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+config = { path = "../config" }
 tokio = { workspace = true }
 crossterm = { workspace = true }
-dirs = { workspace = true }
-config = { workspace = true }
-serde = { workspace = true }
-once_cell = { workspace = true }
