@@ -3,9 +3,7 @@ use crossterm::terminal;
 use tokio::sync::Mutex;
 use std::sync::Arc;
 
-mod read_message;
-mod write_message;
-mod input_handler;
+mod io;
 mod ui;
 mod util;
 
@@ -24,12 +22,12 @@ async fn main() {
 
     let read_shared = Arc::clone(&shared_variable);
     let _read_task = tokio::spawn(async move {
-        read_message::read_message(reader, read_shared).await;
+        io::read_message::read_message(reader, read_shared).await;
     });
 
     let input_shared = Arc::clone(&shared_variable);
     let input_task = tokio::spawn(async move {
-        input_handler::input_handler(writer, input_shared).await;
+        io::input_handler::input_handler(writer, input_shared).await;
     });
 
     let _ = tokio::join!(input_task);
