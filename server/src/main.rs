@@ -4,7 +4,10 @@ use tokio::io::{AsyncReadExt, AsyncWriteExt};
 
 #[tokio::main]
 async fn main() {
-    let listener = TcpListener::bind("127.0.0.1:11945").await.unwrap();
+    let config = config::get_config();
+
+    let address = format!("{}:{}", config.server.server_ip, config.server.server_port);
+    let listener = TcpListener::bind(address).await.unwrap();
     let (tx, _) = broadcast::channel(16);
 
     loop {
