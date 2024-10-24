@@ -56,6 +56,24 @@ where user is the profile name of the PC you are connecting to
 and ip is the public IP address of the host
 ```
 
+#
+
+### Configuring
+
+```bash
+# Make the config file in .config
+mkdir ~/.config/chat
+touch ~/.config/chat/config.ini
+
+# Edit the file (Example configuration)
+[general]
+name = anon
+
+[server]
+server_ip = 127.0.0.1
+server_port = 11945
+```
+
 ---
 
 ### License
